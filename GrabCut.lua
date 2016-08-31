@@ -4,10 +4,14 @@ require 'cv.highgui'
 require 'cv.objdetect'
 require 'cv.imgproc'
 
-function GrabCut(im)
-    -- 输入为单张图像(RGB三通道), 输出为分割后的前景图像(RGBA四通道)
-    -- 输出图像背景为透明颜色
-    
+function GrabCut(imfile)
+
+    local im = cv.imread {imfile, cv.IMREAD_COLOR}
+    if im:nDimension() == 0 then
+        print('Problem loading image\n')
+        os.exit(0)
+    end
+        
     -- Load image
     if im:nDimension() == 0 then
         print('Problem loading image\n')

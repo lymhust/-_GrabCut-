@@ -60,7 +60,6 @@ cv.grabCut{img=im, mask=mask, rect=0, bgdModel=bgdModel, fgdModel=fgdModel, iter
 
 mask = mask:eq(3)
 mask = mask:eq(0)
---image.display(mask)
 
 for i = 1, 4 do
 	local tmp = imbgra[{ {},{},i }]
